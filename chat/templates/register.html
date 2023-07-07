@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<body>
+    
+
+    {% if not request.user %}
+
+
+    <form method="POST" accept-charset="utf-8">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="Submit" name="submit" value="Signup">
+    </form>
+    {% else %}
+    <h1>you can create chatroom</h1> <br>
+    <a href="{% url 'logout' %}">logout</a>
+    {% endif %}
+</body>
+</html>
